@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>V's 2026 Goal List ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- 背景裝飾泡泡 -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+
+  <div class="app-wrapper">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="header-title-area">
+          <span class="header-emoji">🌸</span>
+          <h1 class="site-title">V's 2026 Goal List</h1>
+          <span class="header-emoji">✨</span>
+        </div>
+        <p class="header-subtitle">一步一步，成為更好的自己 💪</p>
+        <div class="header-actions">
+          <div class="sync-status" id="syncStatus">
+            <span class="sync-dot"></span>
+            <span class="sync-text">未連線 Google Sheets</span>
+          </div>
+          <button class="btn-config" id="btnConfig" title="設定 Google Sheets">
+            ⚙️ 設定
+          </button>
+        </div>
+      </div>
+
+      <!-- 整體進度 -->
+      <div class="overall-stats">
+        <div class="stat-card">
+          <span class="stat-num" id="totalGoals">0</span>
+          <span class="stat-label">總目標</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="completedGoals">0</span>
+          <span class="stat-label">已完成</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="overallProgress">0%</span>
+          <span class="stat-label">整體進度</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 今日3件事 Banner -->
+    <section class="today-banner" id="todayBanner">
+      <div class="today-inner">
+        <h2 class="today-title">🎯 今日建議完成</h2>
+        <p class="today-hint">這3件事，今天特別適合推進一下 ✨</p>
+        <div class="today-items" id="todayItems">
+          <!-- 動態產生 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 主內容 -->
+    <main class="main-grid">
+      <!-- 四個 section 動態產生 -->
+    </main>
+
+  </div>
+
+  <!-- 設定彈窗 -->
+  <div class="modal-overlay" id="configModal">
+    <div class="modal-card">
+      <button class="modal-close" id="closeConfig">✕</button>
+      <h2 class="modal-title">⚙️ Google Sheets 設定</h2>
+      <p class="modal-desc">
+        請先按照 <strong>README.md</strong> 教學建立 Apps Script Web App，
+        然後貼上你的 Web App URL。
+      </p>
+      <label class="input-label">Apps Script Web App URL</label>
+      <input
+        type="url"
+        id="webAppUrl"
+        class="modal-input"
+        placeholder="https://script.google.com/macros/s/XXXX/exec"
+      />
+      <div class="modal-actions">
+        <button class="btn-secondary" id="cancelConfig">取消</button>
+        <button class="btn-primary" id="saveConfig">儲存並連線</button>
+      </div>
+      <div class="modal-note">
+        💡 URL 儲存在瀏覽器 localStorage，不會上傳到任何地方
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast 通知 -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
